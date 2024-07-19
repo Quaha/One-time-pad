@@ -1,0 +1,4 @@
+   Welcome to the message encryption program using a one-time cipherblock, which is based on the Vigener cipher.
+A one-time cipherblock has absolute cryptographic strength due to the fact that the message is encrypted with
+a key that has the same length as the initial message. This allows you to securely encrypt a message, because
+without a key, one encrypted message can be decrypted into absolutely any one.
