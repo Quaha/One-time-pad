@@ -1,10 +1,15 @@
 from tkinter import *
 from tkinter import messagebox
+
 import VigenereCipher
 from VigenereCipher import LETTERS
+
 import sys
 import secrets
 import time
+
+PROGRAM_NAME = "One-time pad"
+VERSION = "V1.02 from 23.07.21"
 
 MAIN_BUTTON_WIDTH = 25
 
@@ -15,8 +20,9 @@ SECOND_BUTTON_FONT = 'Lucida Console'
 def main():
     global window
 
+    # Creating a window
     window = Tk()
-    window.title('One-time pad')
+    window.title(PROGRAM_NAME)
     window['bg'] = '#bbbbbb'
     window.geometry('720x480')
     window.resizable(width=False, height=False)
@@ -25,10 +31,10 @@ def main():
     canvas = Canvas(window, width=720, height=480)
     canvas.pack()
 
-    Label(window, text='One-time pad', bg='grey94', font=(SECOND_BUTTON_FONT, 20)).place(relx=0.365, rely=0.025)
-    Label(window, text='V1.01 from 18.07.21', bg='grey94', font=(SECOND_BUTTON_FONT, 8)).place(x=570, y=465)
+    Label(window, text=PROGRAM_NAME, bg='grey94', font=(SECOND_BUTTON_FONT, 20)).place(relx=0.365, rely=0.025)
+    Label(window, text=VERSION, bg='grey94', font=(SECOND_BUTTON_FONT, 8)).place(x=570, y=465)
 
-    mainMenu()
+    mainMenu()  # Opening the menu
 
     window.mainloop()
 
@@ -108,6 +114,7 @@ def decryptMenu():
     decrypt_frame = Frame(window, bg='grey85')
     decrypt_frame.place(rely=0.12, relwidth=1, relheight=0.76)
 
+    # Buttons
     Button(decrypt_frame, text='Exit', bg='grey80', font=(SECOND_BUTTON_FONT, 10), command=sys.exit).place(x=660, y=330)
     Button(decrypt_frame, text='Back', bg='grey80', font=(SECOND_BUTTON_FONT, 10), command=mainMenu).place(x=5,
                                                                                                            y=330)

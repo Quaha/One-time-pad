@@ -5,8 +5,10 @@ import sys
 def main():
     message = input('Enter message: ')
     key = input('Enter key: ')
+
     if len(key) > len(message):
         sys.exit('Error: Invalid key.')
+
     mode = int(input('Enter mode (0 - encrypt, 1 - decrypt): '))
 
     if mode == 0:
@@ -16,7 +18,7 @@ def main():
     else:
         sys.exit('Error: Invalid mode.')
 
-    print('Your message:', translated)
+    print('Your message (it was also copied to the clipboard):', translated)
     pyperclip.copy(translated)
 
 
@@ -33,6 +35,7 @@ def translatedMessage(key, message, mode):
 
     key_index = 0
 
+    # Character Shift
     for symbol in message:
         number = LETTERS.find(symbol)
         if number != -1:
@@ -41,7 +44,7 @@ def translatedMessage(key, message, mode):
             else:
                 number -= LETTERS.find(key[key_index])
 
-            number %= len(LETTERS)
+            number = (number + len(LETTERS)) % len(LETTERS)
 
             translated.append(LETTERS[number])
 
@@ -50,11 +53,12 @@ def translatedMessage(key, message, mode):
                 key_index = 0
         else:
             translated.append(symbol)
+
     return ''.join(translated)
 
 
-with open("alpabet.txt", 'r', encoding="UTF-8") as txtObj:
-    LETTERS = txtObj.read()
+with open("alpabet.txt", 'r', encoding="UTF-8") as txt_obj:
+    LETTERS = txt_obj.read()
 
 if __name__ == '__main__':
     main()
