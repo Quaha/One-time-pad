@@ -5,7 +5,7 @@
 ### How does it work?
 After entering the message, the program generates an encryption key, the size of which matches the size of the text. This is done using the [secrets](https://docs.python.org/3/library/secrets.html) module. The message is then encrypted using the [Vigener cipher](https://en.wikipedia.org/wiki/Vigenère_cipher ).
 
-### Is it safe for her to encrypt data?
+### Is it safe to encrypt data?
 The encryption method itself has [absolute cryptographic strength](https://en.wikipedia.org/wiki/Strong_cryptography ), since there are an infinite number of keys for a specific encrypted text that can decrypt it into absolutely any message. Security problems can only arise either when transmitting an encrypted message and a key (which is exclusively a problem for the program user), or when generating a key using the **secrets** module, however, since it is sufficiently *secure*, this problem disappears.
 
 (The safety of the module is written in the [official documentation](https://docs.python.org/3/library/secrets.html ) according to it in the first paragraph, if you think that this is not the case, you can replace this module with another one)
